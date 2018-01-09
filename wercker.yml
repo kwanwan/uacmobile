@@ -11,7 +11,7 @@ download:
         python download.py
 build:
   box: 
-      id: wcr.io/burningluffy1/uacprodmodel
+      id: wcr.io/zteuac/baseappimage
       username: $DOCKER_USER
       password: $DOCKER_PASSWORD
       tag: v2.0
@@ -30,7 +30,7 @@ build:
     - internal/docker-push:
         username: $DOCKER_USER
         password: $DOCKER_PASSWORD
-        repository: wcr.io/burningluffy1/uactoken
+        repository: wcr.io/zteuac/uacmobile
         working-dir: /usr/local/tomcat/webapps/
         tag: $TAG
         ports: 8080
