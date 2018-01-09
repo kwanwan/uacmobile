@@ -1,0 +1,37 @@
+box:
+  id: python:2.7-slim
+download:
+  steps:
+    - install-packages:
+      packages: gcc libssl-dev
+    - pip-install
+    - script:
+      name: download
+      code: |
+        python download.py
+build:
+  box: 
+      id: wcr.io/burningluffy1/uacprodmodel
+      username: $DOCKER_USER
+      password: $DOCKER_PASSWORD
+      tag: v2.0
+  steps:
+    - script: 
+      name: build
+      code: |
+        mkdir -p /usr/local/tomcat/webapps/uacmobile
+        mv ./uacmobile.war /usr/local/tomcat/webapps/uacmobile/
+        cd /usr/local/tomcat/webapps/uacmobile && jar -xvf uacmobile.war && rm -fr uacmobile.war
+        cd -
+        cp /usr/share/zoneinfo/Asia/Shanghai /etc/localtime \
+            && echo 'Asia/Shanghai' >/etc/timezone \
+        cp ./run.sh /root/
+        chmod 755 /root/run.sh
+    - internal/docker-push:
+        username: $DOCKER_USER
+        password: $DOCKER_PASSWORD
+        repository: wcr.io/burningluffy1/uactoken
+        working-dir: /usr/local/tomcat/webapps/
+        tag: $TAG
+        ports: 8080
+        cmd: "/root/run.sh"
