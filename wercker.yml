@@ -21,9 +21,12 @@ build:
       code: |
         mkdir -p /usr/local/tomcat/webapps/uacmobile
         ls
+        echo 'pwd1'
+        pwd
         mv ./uacmobile.war /usr/local/tomcat/webapps/uacmobile/
         cd /usr/local/tomcat/webapps/uacmobile && jar -xvf uacmobile.war && rm -fr uacmobile.war
-        ls
+        echo 'pwd2'
+        pwd
         cd -
         cp /usr/share/zoneinfo/Asia/Shanghai /etc/localtime \
             && echo 'Asia/Shanghai' >/etc/timezone
