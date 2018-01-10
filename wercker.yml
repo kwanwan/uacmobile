@@ -30,7 +30,7 @@ build:
         java -version
         echo 'java -version 2'
         echo 'jar start'
-        jar -xvf uacmobile.war
+        /usr/java/jdk1.7.0_55/bin/jar -xvf uacmobile.war
         ls
         echo 'jar end'
         rm -fr uacmobile.war
