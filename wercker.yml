@@ -27,6 +27,8 @@ build:
         cd /usr/local/tomcat/webapps/uacmobile 
         echo 'app list'
         ls
+        java -version
+        echo 'java -version 2'
         jar -xvf uacmobile.war 
         rm -fr uacmobile.war
         echo 'pwd2'
