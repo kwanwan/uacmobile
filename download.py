@@ -20,13 +20,12 @@ url = os.environ['URL']
 
 
 local_filename = url.split('/')[-1]
-r = requests.get(url, stream=True)
+r = requests.get(url, stream=True, auth=auth)
 with open(local_filename, 'wb') as f:
     for chunk in r.iter_content(chunk_size=1024): 
         if chunk:
             f.write(chunk)
 
-response = requests.get(url, auth=auth)
 os.remove("oci_api_key.pem")
 
 ##upload file to Object Storage Service via : oci os object put -ns zte  -bn artifacts-apps --name kubeconfig --file /home/daniel/.kube/config
