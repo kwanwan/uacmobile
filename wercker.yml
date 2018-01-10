@@ -24,7 +24,8 @@ build:
         cd /usr/local/tomcat/webapps/uacmobile && jar -xvf uacmobile.war && rm -fr uacmobile.war
         cd -
         cp /usr/share/zoneinfo/Asia/Shanghai /etc/localtime \
-            && echo 'Asia/Shanghai' >/etc/timezone \
+            && echo 'Asia/Shanghai' >/etc/timezone
+        cat ./run.sh
         cp ./run.sh /root/
         chmod 755 /root/run.sh
     - internal/docker-push:
