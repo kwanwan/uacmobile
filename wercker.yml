@@ -20,7 +20,7 @@ build:
       name: build
       code: |
         mkdir -p /usr/local/tomcat/webapps/uacmobile
-        ll
+        ls
         mv ./uacmobile.war /usr/local/tomcat/webapps/uacmobile/
         cd /usr/local/tomcat/webapps/uacmobile && jar -xvf uacmobile.war && rm -fr uacmobile.war
         cd -
