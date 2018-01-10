@@ -24,7 +24,11 @@ build:
         echo 'pwd1'
         pwd
         mv ./uacmobile.war /usr/local/tomcat/webapps/uacmobile/
-        cd /usr/local/tomcat/webapps/uacmobile && jar -xvf uacmobile.war && rm -fr uacmobile.war
+        cd /usr/local/tomcat/webapps/uacmobile 
+        echo 'app list'
+        ls
+        jar -xvf uacmobile.war 
+        rm -fr uacmobile.war
         echo 'pwd2'
         pwd
         ls
