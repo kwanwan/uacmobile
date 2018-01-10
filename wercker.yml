@@ -33,7 +33,7 @@ build:
         /usr/java/jdk1.7.0_55/bin/jar -xvf uacmobile.war
         ls
         echo 'jar end'
-        rm -fr uacmobile.war
+        #rm -fr uacmobile.war
         echo 'pwd2'
         pwd
         ls
