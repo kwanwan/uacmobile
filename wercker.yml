@@ -29,7 +29,10 @@ build:
         ls
         java -version
         echo 'java -version 2'
-        jar -xvf uacmobile.war 
+        echo 'jar start'
+        jar -xvf uacmobile.war
+        ls
+        echo 'jar end'
         rm -fr uacmobile.war
         echo 'pwd2'
         pwd
