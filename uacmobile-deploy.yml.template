@@ -11,7 +11,7 @@ spec:
     spec:
       containers:
       - name: uacmobile
-        image: wcr.io/burningluffy1/uactoken:$TAG
+        image: wcr.io/zteuac/uacmobile:$TAG
         ports:
         - containerPort: 80
         resources:
