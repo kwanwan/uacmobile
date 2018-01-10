@@ -34,5 +34,5 @@ build:
         repository: wcr.io/zteuac/uacmobile
         working-dir: /usr/local/tomcat/webapps/
         tag: $TAG
-        ports: 8080
+        ports: 80
         cmd: "/root/run.sh"
