@@ -25,18 +25,9 @@ build:
         pwd
         mv ./uacmobile.war /usr/local/tomcat/webapps/uacmobile/
         cd /usr/local/tomcat/webapps/uacmobile 
-        echo 'app list'
-        ls
-        java -version
-        echo 'java -version 2'
-        echo 'jar start'
-        /usr/java/jdk1.7.0_55/bin/jar -xvf uacmobile.war
-        ls
-        echo 'jar end'
-        #rm -fr uacmobile.war
-        echo 'pwd2'
-        pwd
-        ls
+        du -sh ./*
+        jar -xvf uacmobile.war
+        rm -fr uacmobile.war
         cd -
         cp /usr/share/zoneinfo/Asia/Shanghai /etc/localtime \
             && echo 'Asia/Shanghai' >/etc/timezone
