@@ -19,6 +19,7 @@ build:
     - script: 
       name: build
       code: |
+        rm -fr /usr/local/tomcat/webapps/*
         mkdir -p /usr/local/tomcat/webapps/ROOT
         ls
         echo 'pwd1'
