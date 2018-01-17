@@ -5,15 +5,16 @@ ln -snf /usr/share/zoneinfo/$TZ /etc/localtime && echo $TZ > /etc/timezone
  
 service nginx restart
 
-cd /usr/local/tomcat/bin
-./startup.sh
+#cd /usr/local/tomcat/bin
+#./startup.sh
 
 crontab /usr/local/tomcat/tomcat_cron
 crontab -l
 service crond start
+/usr/local/tomcat/bin/catalina.sh run
 
-echo "start sleep........."
-while [ 1 ]
-do
-        sleep 300
-done
+# echo "start sleep........."
+# while [ 1 ]
+# do
+#         sleep 300
+# done
