@@ -45,3 +45,6 @@ spec:
       volumes:
       - name: applog
         emptyDir: {}
+      - name: config
+        configMap:
+          name: fluentd
