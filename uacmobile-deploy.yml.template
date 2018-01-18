@@ -18,5 +18,30 @@ spec:
           limits:
             memory: 4Gi
         imagePullPolicy: Always
+        volumeMounts:
+        - name: applog
+          mountPath: /usr/local/tomcat/logs
+      - name: fluentd
+        image: fluent/fluentd-kubernetes-daemonset:v0.12.33-elasticsearch
+        imagePullPolicy: IfNotPresent
+        env:
+        - name:  FLUENT_ELASTICSEARCH_HOST
+          value: "elasticsearch.logging.svc"
+        - name:  FLUENT_ELASTICSEARCH_PORT
+          value: "9200"
+        - name:  FLUENT_ELASTICSEARCH_LOGSTASH_PREFIX
+          value: "fluentd"
+        - name: DEBUG
+          value: "true"
+        volumeMounts:
+        - name: config
+          mountPath: /fluentd/etc
+        - name: applog
+          mountPath: /usr/local/tomcat/logs
+        securityContext:
+          privileged: true
       imagePullSecrets:
       - name: wrelease
+      volumes:
+      - name: applog
+        emptyDir: {}
